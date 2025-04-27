@@ -1,0 +1,64 @@
+package com.example.coincrate_project
+
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.http.*
+
+interface ApiService {
+
+    // Register a new user
+    @FormUrlEncoded
+    @POST("backend.php?action=register")
+    fun register(
+        @Field("username") username: String,
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): Call<ResponseBody>
+
+    // User login
+    @FormUrlEncoded
+    @POST("backend.php?action=login")
+    fun login(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): Call<ResponseBody>
+
+    // Forgot password
+    @FormUrlEncoded
+    @POST("backend.php?action=forgot_password")
+    fun forgotPassword(
+        @Field("email") email: String
+    ): Call<ResponseBody>
+
+    // Reset password
+    @FormUrlEncoded
+    @POST("backend.php?action=reset_password")
+    fun resetPassword(
+        @Field("email") email: String,
+        @Field("reset_code") resetCode: String,
+        @Field("new_password") newPassword: String
+    ): Call<ResponseBody>
+
+    // Add a new expense/saving transaction
+    @FormUrlEncoded
+    @POST("backend.php")
+    fun addTransaction(
+        @Query("action") action: String = "add_transaction",
+        @Field("user_id") userId: Int,
+        @Field("type") type: String,
+        @Field("name") name: String,
+        @Field("amount") amount: Double
+    ): Call<ResponseBody>
+
+    @GET("backend.php")
+    fun getTransactions(
+        @Query("action") action: String = "get_transactions",
+        @Query("user_id") userId: Int
+    ): Call<ResponseBody>
+}
+
+// Optional: Response model
+data class ApiResponse(
+    val success: String? = null,
+    val error: String? = null
+)

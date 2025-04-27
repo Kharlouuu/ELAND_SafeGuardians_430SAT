@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Home -->
+
+    <!-- Transaction -->
+
+    <!-- FAB (Manage, Diamond Shape) -->
+
+    <!-- Goals -->
+    <ImageView
+        android:id="@+id/nav_home"
+        android:layout_width="41dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="168dp"
+        android:clickable="true"
+        android:contentDescription="Home"
+        android:focusable="true"
+        android:src="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nav_transaction"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/nav_transaction"
+        android:layout_width="41dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="168dp"
+        android:clickable="true"
+        android:contentDescription="Transaction"
+        android:focusable="true"
+        android:src="@drawable/transaction"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fab_center"
+        app:layout_constraintStart_toEndOf="@id/nav_home" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_center"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="152dp"
+        android:backgroundTint="@color/blue"
+        android:rotation="45"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nav_goals"
+        app:layout_constraintStart_toEndOf="@id/nav_transaction"
+        app:srcCompat="@drawable/challenges"
+        app:tint="@android:color/white" />
+
+    <!-- Profile -->
+
+    <ImageView
+        android:id="@+id/nav_goals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="168dp"
+        android:clickable="true"
+        android:contentDescription="Goals"
+        android:focusable="true"
+        android:src="@drawable/goal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nav_profile"
+        app:layout_constraintStart_toEndOf="@id/fab_center" />
+
+    <ImageView
+        android:id="@+id/nav_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="168dp"
+        android:clickable="true"
+        android:contentDescription="Profile"
+        android:focusable="true"
+        android:src="@drawable/profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/nav_goals" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
