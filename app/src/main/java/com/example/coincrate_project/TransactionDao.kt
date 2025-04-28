@@ -19,8 +19,13 @@ interface TransactionDao {
     @Delete
     suspend fun delete(transaction: TransactionEntity)
 
+    // This returns LiveData - for observing
     @Query("SELECT * FROM transactions ORDER BY timestamp DESC")
-    fun getAllTransactions(): LiveData<List<TransactionEntity>>
+    fun getAllTransactionsLive(): LiveData<List<TransactionEntity>>
+
+    // New: This returns List directly - for suspend function
+    @Query("SELECT * FROM transactions ORDER BY timestamp DESC")
+    suspend fun getAllTransactions(): List<TransactionEntity>
 
     @Query("SELECT * FROM transactions WHERE type = :type ORDER BY timestamp DESC")
     fun getTransactionsByType(type: String): LiveData<List<TransactionEntity>>
@@ -31,7 +36,6 @@ interface TransactionDao {
     @Query("SELECT SUM(amount) FROM transactions WHERE type = 'Expenses'")
     fun getTotalExpenses(): LiveData<Double?>
 
-    // 👇 Added function to fetch transaction by ID for editing
     @Query("SELECT * FROM transactions WHERE id = :id")
     suspend fun getTransactionById(id: Int): TransactionEntity?
 }

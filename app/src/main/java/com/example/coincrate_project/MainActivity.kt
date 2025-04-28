@@ -19,6 +19,7 @@ import android.widget.LinearLayout
 import androidx.activity.result.contract.ActivityResultContracts
 
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var tvTotalSavings: TextView
@@ -175,4 +176,4 @@ class MainActivity : AppCompatActivity() {
 
         override fun getItemCount(): Int = transactions.size
     }
-    }
+}

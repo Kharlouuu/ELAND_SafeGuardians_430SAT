@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
+
 class ManageActivity : AppCompatActivity() {
 
     private lateinit var tvTotalSavings: TextView
@@ -20,6 +21,8 @@ class ManageActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
     private var totalSavings: Double = 0.0
+
+    private val transactionsList = mutableListOf<Transaction>() // <- Fill this properly!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,14 +35,16 @@ class ManageActivity : AppCompatActivity() {
 
         db = AppDatabase.getDatabase(this)
 
-        loadTotalSavings() // ← This updates totalSavings variable too
+        loadTotalSavings()
 
         btnEditBudget.setOnClickListener {
             showEditDialog()
         }
 
         btnSavings.setOnClickListener {
-            startActivity(Intent(this, SavingsActivity::class.java))
+            val intent = Intent(this, SavingsActivity::class.java)
+            intent.putParcelableArrayListExtra("transactions_list", ArrayList(transactionsList))
+            startActivity(intent)
         }
 
         btnExpenses.setOnClickListener {
@@ -53,17 +58,16 @@ class ManageActivity : AppCompatActivity() {
         updateSavingsDisplay()
     }
 
-    // Adds the new amount to current total savings
+    private fun updateSavingsDisplay() {
+        tvTotalSavings.text = "₱%.2f".format(totalSavings)
+    }
+
     private fun addToTotalSavings(additionalAmount: Double) {
         totalSavings += additionalAmount
         val prefs = getSharedPreferences("budget_prefs", MODE_PRIVATE)
         prefs.edit().putFloat("total_savings", totalSavings.toFloat()).apply()
         updateSavingsDisplay()
         Toast.makeText(this, "Savings added!", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun updateSavingsDisplay() {
-        tvTotalSavings.text = "₱%.2f".format(totalSavings)
     }
 
     private fun showEditDialog() {

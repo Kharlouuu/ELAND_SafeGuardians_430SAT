@@ -28,12 +28,6 @@ class ExpensesActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.rvExpenses)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        adapter = TransactionAdapter(
-            transactionList,
-            onEditClick = { transaction -> showEditDialog(transaction) },
-            onDeleteClick = { transaction -> deleteTransaction(transaction) }
-        )
-
         recyclerView.adapter = adapter
 
         observeExpenseTransactions()
