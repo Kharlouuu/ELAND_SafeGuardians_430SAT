@@ -20,13 +20,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 
 
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var tvTotalSavings: TextView
     private lateinit var rvTransactions: RecyclerView
     private lateinit var transactionsAdapter: TransactionAdapter
     private lateinit var bottomNavigationView: BottomNavigationView
-
 
     private val transactionsList = mutableListOf<Transaction>()
 
@@ -40,12 +40,23 @@ class MainActivity : AppCompatActivity() {
 
             if (!name.isNullOrEmpty() && amount != null && !type.isNullOrEmpty()) {
                 transactionsList.add(0, Transaction(name, type, amount))
-                transactionsAdapter.notifyItemInserted(0)
+
+                // Update only the latest 4 items again
+                val latestFourTransactions = if (transactionsList.size > 4) {
+                    transactionsList.subList(0, 4)
+                } else {
+                    transactionsList
+                }
+
+                // Reset adapter with new data
+                transactionsAdapter = TransactionAdapter(latestFourTransactions)
+                rvTransactions.adapter = transactionsAdapter
                 rvTransactions.scrollToPosition(0)
 
                 val message = "You have successfully added a $type for this month"
                 NotificationStorage.addNotification(message)
 
+                saveTransactions()
             }
         }
     }
@@ -64,9 +75,19 @@ class MainActivity : AppCompatActivity() {
         tvTotalSavings = findViewById(R.id.tvTotalSavings)
 
         transactionsList.addAll(getSampleTransactions())
-        transactionsAdapter = TransactionAdapter(transactionsList)
+
+        // Show only the latest 4 transactions (or fewer if less)
+        val latestFourTransactions = if (transactionsList.size > 4) {
+            transactionsList.subList(0, 4)
+        } else {
+            transactionsList
+        }
+
+        transactionsAdapter = TransactionAdapter(latestFourTransactions)
         rvTransactions.layoutManager = LinearLayoutManager(this)
         rvTransactions.adapter = transactionsAdapter
+
+        saveTransactions()
 
         btnLogout.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
@@ -126,6 +147,8 @@ class MainActivity : AppCompatActivity() {
         val totalSavings = prefs.getFloat("total_savings", 0.0f).toDouble()
         tvTotalSavings.text = "₱%,.2f".format(totalSavings)
     }
+
+
     // Sample Transaction Display in Dashboard
     private fun getSampleTransactions(): List<Transaction> {
         return listOf(
@@ -133,6 +156,14 @@ class MainActivity : AppCompatActivity() {
             Transaction("Water bill", "Expenses", 800.00),
             Transaction("Emergency Fund", "Savings", 1500.00)
         )
+    }
+    private fun saveTransactions() {
+        val prefs = getSharedPreferences("transactions_prefs", MODE_PRIVATE)
+        val editor = prefs.edit()
+
+        val transactionsString = transactionsList.joinToString("#") { "${it.name}|${it.type}|${it.amount}" }
+        editor.putString("transactions_list", transactionsString)
+        editor.apply()
     }
 
     data class Transaction(val name: String, val type: String, val amount: Double)

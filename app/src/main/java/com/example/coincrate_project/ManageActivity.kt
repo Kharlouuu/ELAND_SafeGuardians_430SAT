@@ -22,7 +22,7 @@ class ManageActivity : AppCompatActivity() {
     private lateinit var db: AppDatabase
     private var totalSavings: Double = 0.0
 
-    private val transactionsList = mutableListOf<Transaction>() // <- Fill this properly!
+    private val transactionsList = ArrayList<MainActivity.Transaction>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +42,8 @@ class ManageActivity : AppCompatActivity() {
         }
 
         btnSavings.setOnClickListener {
-            val intent = Intent(this, SavingsActivity::class.java)
-            intent.putParcelableArrayListExtra("transactions_list", ArrayList(transactionsList))
-            startActivity(intent)
+            startActivity(Intent(this, SavingsActivity::class.java))
+
         }
 
         btnExpenses.setOnClickListener {

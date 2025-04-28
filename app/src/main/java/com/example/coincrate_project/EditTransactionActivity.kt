@@ -24,7 +24,7 @@ class EditTransactionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_transaction)
+        setContentView(R.layout.edit_transaction)
 
         etName = findViewById(R.id.etEditName)
         etAmount = findViewById(R.id.etEditAmount)

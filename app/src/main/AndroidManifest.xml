@@ -50,6 +50,8 @@
             android:exported="false" />
         <activity android:name=".NotificationActivity"
             android:exported="false" />
+        <activity android:name=".TransactionActivity"
+            android:exported="false" />
 
 
     </application>

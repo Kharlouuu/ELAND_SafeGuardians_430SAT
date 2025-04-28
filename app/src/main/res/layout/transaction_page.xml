@@ -10,10 +10,13 @@
         android:layout_width="413dp"
         android:layout_height="255dp"
         android:background="@drawable/main_shape"
+        app:layout_constraintBottom_toBottomOf="@+id/shape3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/shape3"
@@ -28,8 +31,18 @@
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAllTransactions"
+        android:layout_width="398dp"
+        android:layout_height="659dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shape3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shape3"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/back_nav"
@@ -48,8 +61,12 @@
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="71dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/shape2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.265"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
