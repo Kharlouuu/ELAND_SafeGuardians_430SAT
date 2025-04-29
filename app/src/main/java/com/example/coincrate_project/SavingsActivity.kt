@@ -19,7 +19,7 @@ class SavingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.savings_page)
+        setContentView(R.layout.savings_category_page)
 
         rvSavings = findViewById(R.id.recyclerSavings)
 
