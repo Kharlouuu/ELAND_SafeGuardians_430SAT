@@ -9,11 +9,11 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.app.AlertDialog
 
-class SavingsAdapter(
+class TransactionManageAdapter(
     private val savingsList: List<MainActivity.Transaction>,
     private val onEdit: (Int) -> Unit,
     private val onDelete: (Int) -> Unit
-) : RecyclerView.Adapter<SavingsAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<TransactionManageAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvName: TextView = view.findViewById(R.id.tvExpenseTitle)

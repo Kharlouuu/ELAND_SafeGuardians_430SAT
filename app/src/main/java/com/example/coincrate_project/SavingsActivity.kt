@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 class SavingsActivity : AppCompatActivity() {
 
     private lateinit var rvSavings: RecyclerView
-    private lateinit var savingsAdapter: SavingsAdapter
+    private lateinit var transactionManageAdapter: TransactionManageAdapter
     private val savingsList = mutableListOf<MainActivity.Transaction>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,14 +25,14 @@ class SavingsActivity : AppCompatActivity() {
 
         loadSavings()
 
-        savingsAdapter = SavingsAdapter(
+        transactionManageAdapter = TransactionManageAdapter(
             savingsList,
             onEdit = { position -> showEditDialog(position) },
             onDelete = { position -> deleteSaving(position) }
         )
 
         rvSavings.layoutManager = LinearLayoutManager(this)
-        rvSavings.adapter = savingsAdapter
+        rvSavings.adapter = transactionManageAdapter
     }
 
     private fun loadSavings() {
@@ -89,7 +89,7 @@ class SavingsActivity : AppCompatActivity() {
             }
 
             savingsList[position] = MainActivity.Transaction(newName, "Savings", newAmount)
-            savingsAdapter.notifyItemChanged(position)
+            transactionManageAdapter.notifyItemChanged(position)
             saveSavings()
             dialog.dismiss()
             Toast.makeText(this, "Saving updated!", Toast.LENGTH_SHORT).show()
@@ -100,7 +100,7 @@ class SavingsActivity : AppCompatActivity() {
 
     private fun deleteSaving(position: Int) {
         savingsList.removeAt(position)
-        savingsAdapter.notifyItemRemoved(position)
+        transactionManageAdapter.notifyItemRemoved(position)
         saveSavings()
         Toast.makeText(this, "Saving deleted!", Toast.LENGTH_SHORT).show()
     }
