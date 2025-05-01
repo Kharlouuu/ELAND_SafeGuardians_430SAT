@@ -16,15 +16,22 @@
             android:id="@+id/tvExpenseTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="9dp"
             android:text="Transaction Name"
-            android:textStyle="bold"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvExpenseAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvExpenseTitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="4dp"
             android:text="₱123.00"
             android:textSize="14sp" />
 
@@ -34,8 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="31dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="30dp"
             android:text="Savings"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -45,21 +52,24 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_below="@id/tvExpenseAmount"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/edit_icon"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="9dp"
             android:background="@android:color/transparent"
-            android:contentDescription="Edit" />
+            android:contentDescription="Edit"
+            android:src="@drawable/edit_icon" />
 
         <ImageButton
             android:id="@+id/btnDelete"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_toEndOf="@id/btnEdit"
             android:layout_alignTop="@id/btnEdit"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/delete_icon"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@id/btnEdit"
             android:background="@android:color/transparent"
-            android:contentDescription="Delete" />
+            android:contentDescription="Delete"
+            android:src="@drawable/delete_icon" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

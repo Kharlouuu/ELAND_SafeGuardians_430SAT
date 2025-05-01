@@ -6,4 +6,6 @@
     <color name="expense_red">#E53935</color>
     <color name="savings_green">#43A047</color>
     <color name="gray">#808080</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="teal_700">#018786</color>
 </resources>

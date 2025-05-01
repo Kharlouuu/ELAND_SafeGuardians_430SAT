@@ -70,6 +70,7 @@ class SavingsActivity : AppCompatActivity() {
         val etEditAmount = dialogView.findViewById<EditText>(R.id.etEditAmount)
         val tvEditType = dialogView.findViewById<TextView>(R.id.tvEditType)
         val btnEditSave = dialogView.findViewById<Button>(R.id.btnEditSave)
+        val btnCancel = dialogView.findViewById<Button>(R.id.btnCancel)
 
         etEditName.setText(saving.name)
         etEditAmount.setText(saving.amount.toString())
@@ -93,6 +94,10 @@ class SavingsActivity : AppCompatActivity() {
             saveSavings()
             dialog.dismiss()
             Toast.makeText(this, "Saving updated!", Toast.LENGTH_SHORT).show()
+        }
+
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
         }
 
         dialog.show()

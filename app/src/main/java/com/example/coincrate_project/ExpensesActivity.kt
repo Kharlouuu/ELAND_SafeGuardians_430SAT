@@ -35,6 +35,7 @@ class ExpensesActivity : AppCompatActivity() {
         rvExpenses.adapter = transactionManageAdapter
     }
 
+
     private fun loadExpenses() {
         val prefs = getSharedPreferences("transactions_prefs", MODE_PRIVATE)
         val transactionsString = prefs.getString("transactions_list", "") ?: ""
@@ -70,6 +71,7 @@ class ExpensesActivity : AppCompatActivity() {
         val etEditAmount = dialogView.findViewById<EditText>(R.id.etEditAmount)
         val tvEditType = dialogView.findViewById<TextView>(R.id.tvEditType)
         val btnEditSave = dialogView.findViewById<Button>(R.id.btnEditSave)
+        val btnCancel = dialogView.findViewById<Button>(R.id.btnCancel)
 
         etEditName.setText(expense.name)
         etEditAmount.setText(expense.amount.toString())
@@ -95,8 +97,13 @@ class ExpensesActivity : AppCompatActivity() {
             Toast.makeText(this, "Expense updated!", Toast.LENGTH_SHORT).show()
         }
 
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
         dialog.show()
     }
+
 
     private fun confirmDelete(position: Int) {
         AlertDialog.Builder(this)
