@@ -55,7 +55,10 @@
             android:exported="false" />
         <activity android:name=".ChallengesActivity"
             android:exported="false" />
-
+        <activity android:name=".GoalsActivity"
+            android:exported="false" />
+        <activity android:name=".AddGoalActivity"
+            android:exported="false" />
 
     </application>
 

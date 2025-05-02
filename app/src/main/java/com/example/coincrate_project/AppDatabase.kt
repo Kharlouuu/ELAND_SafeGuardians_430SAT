@@ -6,13 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [TransactionEntity::class, SavedDay::class],
-    version = 2,
+    entities = [TransactionEntity::class, SavedDay::class, GoalEntity::class],
+    version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun transactionDao(): TransactionDao
     abstract fun savedDayDao(): SavedDayDao
+    abstract fun goalDao(): GoalDao
 
     companion object {
         @Volatile private var INSTANCE: AppDatabase? = null

@@ -117,6 +117,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Bottom navigation buttons
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> true
@@ -129,6 +130,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_goals -> {
+                    Toast.makeText(this, "Goals clicked", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, GoalsActivity::class.java))
                     true
                 }

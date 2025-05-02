@@ -1,6 +1,7 @@
 package com.example.coincrate_project
 
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -23,14 +24,17 @@ class ChallengesActivity : AppCompatActivity() {
     private lateinit var tvStreak: TextView
     private lateinit var tvMonthlyTotal: TextView
     private lateinit var tvDailyGoalDisplay: TextView
+    private lateinit var cardSuccess: View
 
     private var dailyGoal: Double = 0.0
-    private val savedDates = mutableSetOf<String>()
     private val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_challenges)
+
+        val btnBack = findViewById<ImageView>(R.id.btnBack)
+        btnBack.setOnClickListener { finish() }
 
         db = AppDatabase.getDatabase(applicationContext)
         savedDayDao = db.savedDayDao()
@@ -41,28 +45,18 @@ class ChallengesActivity : AppCompatActivity() {
         btnSaveToday = findViewById(R.id.btnSaveToday)
         tvStreak = findViewById(R.id.tvStreak)
         tvMonthlyTotal = findViewById(R.id.tvMonthlyTotal)
-        tvDailyGoalDisplay = findViewById(R.id.tvDailyGoal) // Make sure this exists in XML
+        tvDailyGoalDisplay = findViewById(R.id.tvDailyGoal)
+        cardSuccess = findViewById(R.id.cardSavedToday)
+        cardSuccess.visibility = View.GONE
 
-        lifecycleScope.launch {
-            val allSaved = savedDayDao.getAll()
-            savedDates.addAll(allSaved.map { it.date })
-
-            allSaved.forEach {
-                val date = LocalDate.parse(it.date, dateFormatter)
-                calendarView.setDateSelected(CalendarDay.from(date.year, date.monthValue, date.dayOfMonth), true)
-            }
-
-            updateStreak()
-            updateMonthlyTotal()
-        }
+        // Load daily goal from SharedPreferences
+        val sharedPref = getSharedPreferences("coincrate_prefs", MODE_PRIVATE)
+        dailyGoal = sharedPref.getFloat("dailyGoal", 0.0f).toDouble()
+        tvDailyGoalDisplay.text = "Daily Goal\n₱%.2f".format(dailyGoal)
 
         btnSaveToday.setOnClickListener {
             if (dailyGoal <= 0.0) {
-                Toast.makeText(
-                    this@ChallengesActivity,
-                    "Please set a valid daily goal amount before saving.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Please set a valid daily goal amount before saving.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -72,31 +66,38 @@ class ChallengesActivity : AppCompatActivity() {
                 if (savedDayDao.getByDate(today.toString()) == null) {
                     savedDayDao.insert(SavedDay(date = today.toString(), amountSaved = dailyGoal))
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(
-                            this@ChallengesActivity,
-                            "You have successfully saved today",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(this@ChallengesActivity, "You have successfully saved today", Toast.LENGTH_SHORT).show()
                         calendarView.setDateSelected(CalendarDay.from(today.year, today.monthValue, today.dayOfMonth), true)
                         updateStreak()
                         updateMonthlyTotal()
+                        cardSuccess.visibility = View.VISIBLE
                     }
                 } else {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(
-                            this@ChallengesActivity,
-                            "Already saved for today!",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(this@ChallengesActivity, "Already saved for today!", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         }
+
         btnSetGoal.setOnClickListener {
             val input = etDailyGoal.text.toString()
             dailyGoal = input.toDoubleOrNull() ?: 0.0
             tvDailyGoalDisplay.text = "Daily Goal\n₱%.2f".format(dailyGoal)
+
+            // Save daily goal to SharedPreferences
+            sharedPref.edit().putFloat("dailyGoal", dailyGoal.toFloat()).apply()
+
             Toast.makeText(this, "Daily goal set to ₱$dailyGoal", Toast.LENGTH_SHORT).show()
+            lifecycleScope.launch {
+                updateMonthlyTotal()
+            }
+        }
+
+        // Initial update on launch
+        lifecycleScope.launch {
+            updateStreak()
+            updateMonthlyTotal()
         }
     }
 
@@ -118,22 +119,11 @@ class ChallengesActivity : AppCompatActivity() {
         val now = LocalDate.now()
         val start = now.withDayOfMonth(1)
         val end = now.withDayOfMonth(now.lengthOfMonth())
-
-        val count = savedDayDao.getCountInRange(
-            start.format(dateFormatter),
-            end.format(dateFormatter)
-        )
-
+        val count = savedDayDao.getCountInRange(start.format(dateFormatter), end.format(dateFormatter))
         val total = count * dailyGoal
 
         withContext(Dispatchers.Main) {
             tvMonthlyTotal.text = "₱%.2f".format(total)
-            //  Debug log to check if range count works
-            Toast.makeText(
-                this@ChallengesActivity,
-                "Saved days this month: $count",
-                Toast.LENGTH_SHORT
-            ).show()
         }
     }
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    android:elevation="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Goal Name -->
+        <TextView
+            android:id="@+id/tvGoalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy Phone"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <!-- Goal Description below Goal Name -->
+        <TextView
+            android:id="@+id/tvGoalDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvGoalName"
+            android:layout_alignStart="@id/tvGoalName"
+            android:layout_marginTop="4dp"
+            android:text="Goal"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <!-- Goal Amount aligned to the top right -->
+        <TextView
+            android:id="@+id/tvGoalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="₱20,000.00"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <!-- Star icon aligned below the amount -->
+        <ImageView
+            android:id="@+id/ivStar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@id/tvGoalAmount"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/star_icon"
+            android:contentDescription="Goal Status Icon" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

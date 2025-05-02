@@ -18,7 +18,7 @@
         android:enabled="true" />
 
     <item
-        android:id="@+id/nav_goal"
+        android:id="@+id/nav_goals"
         android:icon="@drawable/goal"
         android:title="Goal"
         android:enabled="true" />
