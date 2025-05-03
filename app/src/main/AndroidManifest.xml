@@ -59,6 +59,10 @@
             android:exported="false" />
         <activity android:name=".AddGoalActivity"
             android:exported="false" />
+        <activity android:name=".ProfileActivity"
+        android:exported="false" />
+        <activity android:name=".EditProfileActivity"
+            android:exported="false" />
 
     </application>
 

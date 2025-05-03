@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.ResponseBody
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,17 +23,14 @@ class LoginActivity : AppCompatActivity() {
         val tvForgotPassword = findViewById<TextView>(R.id.tvForgotPassword)
         val tvRegister = findViewById<TextView>(R.id.tvRegister)
 
-        // Navigate to Register
         tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        // Navigate to Forgot Password
         tvForgotPassword.setOnClickListener {
             startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
 
-        // Handle login
         btnLogin.setOnClickListener {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
@@ -42,17 +40,36 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // DEBUGGING: Use raw login to see exact response
             RetrofitInstance.api.login(email, password).enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                    val body = response.body()?.string()
-                    Log.d("RawLoginResponse", body ?: "null")
+                    if (response.isSuccessful && response.body() != null) {
+                        val bodyString = response.body()!!.string()
+                        Log.d("RawLoginResponse", bodyString)
 
-                    if (response.isSuccessful && body != null) {
-                        Toast.makeText(this@LoginActivity, "Response: $body", Toast.LENGTH_LONG).show()
+                        try {
+                            val json = JSONObject(bodyString)
+                            if (json.has("success")) {
+                                val username = json.optString("username")
+                                val userEmail = json.optString("email")
 
-                        if (body.contains("Login successful", ignoreCase = true)) {
-                            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                                // Save to SharedPreferences
+                                val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
+                                sharedPref.edit()
+                                    .putString("username", username)
+                                    .putString("email", userEmail)
+                                    .apply()
+
+                                Toast.makeText(this@LoginActivity, "Welcome $username!", Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                                finish()
+                            } else {
+                                val errorMessage = json.optString("error", "Login failed")
+                                Toast.makeText(this@LoginActivity, errorMessage, Toast.LENGTH_SHORT).show()
+                            }
+
+                        } catch (e: Exception) {
+                            Log.e("LoginParseError", "Invalid JSON", e)
+                            Toast.makeText(this@LoginActivity, "Login failed: Invalid server response", Toast.LENGTH_SHORT).show()
                         }
                     } else {
                         Toast.makeText(this@LoginActivity, "Login failed", Toast.LENGTH_SHORT).show()
@@ -64,7 +81,6 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this@LoginActivity, "Failed: ${t.message}", Toast.LENGTH_LONG).show()
                 }
             })
-
         }
     }
 }

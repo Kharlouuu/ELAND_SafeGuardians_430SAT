@@ -123,10 +123,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home -> true
                 R.id.nav_transaction -> {
                     startActivity(Intent(this, TransactionActivity::class.java))
+                    Toast.makeText(this, "Navigation clicked", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_challenges -> {
                     startActivity(Intent(this, ChallengesActivity::class.java))
+                    Toast.makeText(this, "Challenges clicked", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.nav_goals -> {
@@ -135,7 +137,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_profile -> {
-                    startActivity(Intent(this, HomeActivity::class.java))
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                    Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show()
                     true
                 }
                 else -> false

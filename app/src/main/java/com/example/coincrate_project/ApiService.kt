@@ -15,6 +15,15 @@ interface ApiService {
         @Field("password") password: String
     ): Call<ResponseBody>
 
+    // Update the Profile
+    @FormUrlEncoded
+    @POST("backend.php?action=update_profile")
+    fun updateUser(
+        @Field("email") email: String,
+        @Field("new_username") newUsername: String,
+        @Field("new_password") newPassword: String
+    ): Call<ResponseBody>
+
     // User login
     @FormUrlEncoded
     @POST("backend.php?action=login")
