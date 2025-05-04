@@ -50,4 +50,10 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
+        tvUserName.text = sharedPref.getString("username", "Unknown User")
+        tvUserEmail.text = sharedPref.getString("email", "unknown@email.com")
+    }
 }
