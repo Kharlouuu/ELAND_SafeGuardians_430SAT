@@ -48,26 +48,10 @@ interface ApiService {
         @Field("new_password") newPassword: String
     ): Call<ResponseBody>
 
-    // Add a new expense/saving transaction
-    @FormUrlEncoded
-    @POST("backend.php")
-    fun addTransaction(
-        @Query("action") action: String = "add_transaction",
-        @Field("user_id") userId: Int,
-        @Field("type") type: String,
-        @Field("name") name: String,
-        @Field("amount") amount: Double
-    ): Call<ResponseBody>
 
-    @GET("backend.php")
-    fun getTransactions(
-        @Query("action") action: String = "get_transactions",
-        @Query("user_id") userId: Int
-    ): Call<ResponseBody>
+    // Optional: Response model
+    data class ApiResponse(
+        val success: String? = null,
+        val error: String? = null
+    )
 }
-
-// Optional: Response model
-data class ApiResponse(
-    val success: String? = null,
-    val error: String? = null
-)
