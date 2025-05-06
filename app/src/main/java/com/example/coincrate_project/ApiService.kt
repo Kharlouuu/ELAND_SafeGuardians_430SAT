@@ -47,12 +47,10 @@ interface ApiService {
         @Field("reset_code") resetCode: String,
         @Field("new_password") newPassword: String
     ): Call<ResponseBody>
-
-
-    // Optional: Response model
+  
+      // Optional: Response model
     data class ApiResponse(
         val success: String? = null,
         val error: String? = null
     )
-
 }
