@@ -33,6 +33,7 @@ class ChallengesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_challenges)
 
+
         val btnBack = findViewById<ImageView>(R.id.btnBack)
         btnBack.setOnClickListener { finish() }
 
@@ -49,14 +50,42 @@ class ChallengesActivity : AppCompatActivity() {
         cardSuccess = findViewById(R.id.cardSavedToday)
         cardSuccess.visibility = View.GONE
 
-        // Load daily goal from SharedPreferences
-        val sharedPref = getSharedPreferences("coincrate_prefs", MODE_PRIVATE)
-        dailyGoal = sharedPref.getFloat("dailyGoal", 0.0f).toDouble()
-        tvDailyGoalDisplay.text = "Daily Goal\n₱%.2f".format(dailyGoal)
+        val prefs = getSharedPreferences("coincrate_prefs", MODE_PRIVATE)
+        val hasLaunched = prefs.getBoolean("app_launched_once", false)
+
+        if (!hasLaunched) {
+            // First cold start - reset everything
+            prefs.edit().putBoolean("app_launched_once", true).apply()
+            prefs.edit().remove("dailyGoal").apply()
+            dailyGoal = 0.0
+            tvDailyGoalDisplay.text = "Daily Goal\n₱%.2f".format(dailyGoal)
+
+            lifecycleScope.launch {
+                withContext(Dispatchers.IO) {
+                    savedDayDao.deleteAll()
+                }
+                updateStreak()
+                updateMonthlyTotal()
+            }
+        } else {
+            // Load existing daily goal
+            dailyGoal = prefs.getFloat("dailyGoal", 0.0f).toDouble()
+            tvDailyGoalDisplay.text = "Daily Goal\n₱%.2f".format(dailyGoal)
+
+            // Update UI from existing DB
+            lifecycleScope.launch {
+                updateStreak()
+                updateMonthlyTotal()
+            }
+        }
 
         btnSaveToday.setOnClickListener {
             if (dailyGoal <= 0.0) {
-                Toast.makeText(this, "Please set a valid daily goal amount before saving.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Please set a valid daily goal amount before saving.",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 
@@ -66,15 +95,23 @@ class ChallengesActivity : AppCompatActivity() {
                 if (savedDayDao.getByDate(today.toString()) == null) {
                     savedDayDao.insert(SavedDay(date = today.toString(), amountSaved = dailyGoal))
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(this@ChallengesActivity, "You have successfully saved today", Toast.LENGTH_SHORT).show()
-                        calendarView.setDateSelected(CalendarDay.from(today.year, today.monthValue, today.dayOfMonth), true)
+                        Toast.makeText(
+                            this@ChallengesActivity,
+                            "You have successfully saved today",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        calendarView.setDateSelected(CalendarDay.from(today.year, today.monthValue - 1, today.dayOfMonth), true)
                         updateStreak()
                         updateMonthlyTotal()
                         cardSuccess.visibility = View.VISIBLE
                     }
                 } else {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(this@ChallengesActivity, "Already saved for today!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@ChallengesActivity,
+                            "Already saved for today!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
@@ -86,18 +123,12 @@ class ChallengesActivity : AppCompatActivity() {
             tvDailyGoalDisplay.text = "Daily Goal\n₱%.2f".format(dailyGoal)
 
             // Save daily goal to SharedPreferences
-            sharedPref.edit().putFloat("dailyGoal", dailyGoal.toFloat()).apply()
+            prefs.edit().putFloat("dailyGoal", dailyGoal.toFloat()).apply()
 
             Toast.makeText(this, "Daily goal set to ₱$dailyGoal", Toast.LENGTH_SHORT).show()
             lifecycleScope.launch {
                 updateMonthlyTotal()
             }
-        }
-
-        // Initial update on launch
-        lifecycleScope.launch {
-            updateStreak()
-            updateMonthlyTotal()
         }
     }
 
