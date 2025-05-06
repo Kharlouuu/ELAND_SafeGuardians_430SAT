@@ -152,7 +152,11 @@ class MainActivity : AppCompatActivity() {
         val totalSavings = prefs.getFloat("total_savings", 0.0f).toDouble()
         tvTotalSavings.text = "₱%,.2f".format(totalSavings)
     }
-
+    override fun onDestroy() {
+        super.onDestroy()
+        val prefs = getSharedPreferences("coincrate_prefs", MODE_PRIVATE)
+        prefs.edit().remove("app_launched_once").apply()
+    }
 
     // Sample Transaction Display in Dashboard
     private fun getSampleTransactions(): List<Transaction> {

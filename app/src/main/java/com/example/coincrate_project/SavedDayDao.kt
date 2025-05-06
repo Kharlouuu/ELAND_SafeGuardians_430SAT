@@ -14,6 +14,9 @@ interface SavedDayDao {
     @Query("SELECT * FROM saved_day")
     suspend fun getAll(): List<SavedDay>
 
+    @Query("DELETE FROM saved_day")
+    suspend fun deleteAll()
+
     @Query("SELECT * FROM saved_day WHERE date = :date LIMIT 1")
     suspend fun getByDate(date: String): SavedDay?
 
