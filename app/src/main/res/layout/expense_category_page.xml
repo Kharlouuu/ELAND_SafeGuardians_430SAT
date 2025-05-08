@@ -6,48 +6,53 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <RelativeLayout
-        android:id="@+id/headerLayout"
-        android:layout_width="0dp"
-        android:layout_height="160dp"
-        android:background="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@id/headerLayout"
+        android:layout_width="434dp"
+        android:layout_height="122dp"
+        android:background="@drawable/main_shape"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Back"
-            android:src="@drawable/back_nav" />
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="26dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="36dp"
+        android:background="@drawable/back_nav"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle"
+        app:layout_constraintVertical_bias="0.578" />
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
-            android:text="Expenses"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expenses"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/headerLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/headerLayout"
+        app:layout_constraintVertical_bias="0.536" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerExpenses"
-        android:layout_width="401dp"
-        android:layout_height="586dp"
+        android:layout_width="360dp"
+        android:layout_height="575dp"
+        android:layout_marginStart="20dp"
         android:clipToPadding="false"
         android:paddingTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerLayout"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0.529" />
 </androidx.constraintlayout.widget.ConstraintLayout>

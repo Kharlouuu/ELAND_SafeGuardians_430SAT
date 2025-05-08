@@ -10,14 +10,13 @@
     <!-- Top Shape -->
     <ImageView
         android:id="@+id/shape2"
-        android:layout_width="409dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="417dp"
+        android:layout_height="149dp"
         android:scaleType="fitXY"
         android:src="@drawable/main_shape"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Bottom Background Shape -->
     <ImageView
@@ -32,42 +31,47 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Back Button -->
+
+    <!-- Title -->
+
+    <!-- Add Goal Button -->
+
+    <!-- RecyclerView -->
+
     <ImageView
         android:id="@+id/btnBack"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="56dp"
         android:src="@drawable/back_nav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Title -->
     <TextView
         android:id="@+id/tvGoalTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
         android:text="Goal"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack"
         app:layout_constraintStart_toEndOf="@id/btnBack"
         app:layout_constraintTop_toTopOf="@id/btnBack"
-        app:layout_constraintBottom_toBottomOf="@id/btnBack" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Add Goal Button -->
     <ImageView
         android:id="@+id/btnAddGoal"
-        android:layout_width="38dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="20dp"
         android:src="@drawable/add_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGoals"
         android:layout_width="364dp"
