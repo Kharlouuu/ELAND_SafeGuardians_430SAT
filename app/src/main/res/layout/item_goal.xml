@@ -11,6 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:padding="16dp">
 
         <!-- Goal Name -->
@@ -18,12 +19,12 @@
             android:id="@+id/tvGoalName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:text="Buy Phone"
             android:textColor="#000000"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
+            android:textStyle="bold" />
 
         <!-- Goal Description below Goal Name -->
         <TextView
@@ -44,8 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:text="₱20,000.00"
-            android:textSize="16sp"
             android:textColor="#000000"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <!-- Star icon aligned below the amount -->
@@ -56,8 +57,8 @@
             android:layout_below="@id/tvGoalAmount"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="4dp"
-            android:src="@drawable/star_icon"
-            android:contentDescription="Goal Status Icon" />
+            android:contentDescription="Goal Status Icon"
+            android:src="@drawable/star_icon" />
 
 
     </RelativeLayout>
