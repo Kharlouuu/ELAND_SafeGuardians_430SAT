@@ -8,106 +8,80 @@
     android:background="#FFFFFF">
 
     <!-- Title -->
-
-    <!-- Email (Disabled) -->
-
-    <!-- Username -->
-
-    <!-- New Password -->
-
-    <!-- Confirm Password -->
-
-    <!-- Save Button -->
-
     <TextView
         android:id="@+id/tvEditTitle"
-        android:layout_width="153dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Edit Profile"
-        android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#3F51B5"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etConfirmPassword"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/card_background"
-        android:backgroundTint="@color/material_dynamic_neutral90"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:paddingStart="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNewPassword" />
+        android:layout_marginTop="32dp" />
 
-    <EditText
-        android:id="@+id/etNewPassword"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/card_background"
-        android:backgroundTint="@color/material_dynamic_neutral90"
-        android:ems="10"
-        android:hint="New Password"
-        android:inputType="textPassword"
-        android:paddingStart="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etUsername" />
-
+    <!-- Email (Disabled) -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/card_background"
-        android:backgroundTint="@color/material_dynamic_neutral90"
-        android:ems="10"
-        android:enabled="false"
+        android:layout_height="wrap_content"
         android:hint="Email"
+        android:enabled="false"
         android:inputType="textEmailAddress"
-        android:paddingStart="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:backgroundTint="#AAAAAA"
+        app:layout_constraintTop_toBottomOf="@id/tvEditTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvEditTitle" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
 
+    <!-- Username -->
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/card_background"
-        android:backgroundTint="@color/material_dynamic_neutral90"
-        android:ems="10"
+        android:layout_height="wrap_content"
         android:hint="Username"
         android:inputType="textPersonName"
-        android:paddingStart="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/etEmail"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etEmail" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
 
+    <!-- New Password -->
+    <EditText
+        android:id="@+id/etNewPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="New Password"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@id/etUsername"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Confirm Password -->
+    <EditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@id/etNewPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Save Button -->
     <Button
         android:id="@+id/btnSave"
         android:layout_width="0dp"
-        android:layout_height="54dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:backgroundTint="#3F00FF"
         android:text="Save Changes"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:cornerRadius="10dp"
-        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etConfirmPassword" />
 

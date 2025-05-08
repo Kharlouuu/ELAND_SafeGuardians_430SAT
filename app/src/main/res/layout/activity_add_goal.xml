@@ -8,45 +8,34 @@
     tools:context=".AddGoalActivity">
 
     <!-- Background Header Shape -->
-
-    <!-- Title -->
-
-    <!-- Goal Name Input -->
-
     <ImageView
         android:id="@+id/bgHeader"
-        android:layout_width="417dp"
-        android:layout_height="149dp"
+        android:layout_width="416dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="32dp"
         android:scaleType="fitXY"
         android:src="@drawable/main_shape"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.6" />
 
-    <ImageView
-        android:id="@+id/btnBack"
-        android:layout_width="33dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="72dp"
-        android:src="@drawable/back_nav"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Title -->
     <TextView
         android:id="@+id/tvAddGoalTitle"
-        android:layout_width="125dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Add Goal"
-        android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="30sp"
+        android:textSize="22sp"
         android:textStyle="bold"
+        android:layout_marginBottom="72dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintBottom_toBottomOf="@id/bgHeader"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Goal Name Input -->
     <EditText
         android:id="@+id/etGoalName"
         android:layout_width="378dp"
@@ -83,7 +72,6 @@
         android:layout_width="382dp"
         android:layout_height="57dp"
         android:layout_marginTop="24dp"
-        app:cornerRadius="10dp"
         android:text="Save Goal"
         android:textColor="@android:color/white"
         android:textStyle="bold"

@@ -7,22 +7,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ForgotPasswordActivity">
 
-    <Button
-        android:id="@+id/btnSendCode"
-        android:layout_width="334dp"
-        android:layout_height="54dp"
-        android:layout_margin="16dp"
-        android:layout_marginStart="18dp"
-        android:text="Send"
-        app:cornerRadius="10dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.678"
-        tools:ignore="MissingConstraints" />
-
     <TextView
         android:id="@+id/tvGoBack"
         android:layout_width="wrap_content"
@@ -31,48 +15,55 @@
         android:textColor="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.737" />
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="334dp"
-        android:layout_height="49dp"
+    <Button
+        android:id="@+id/btnSendCode"
+        android:layout_width="369dp"
+        android:layout_height="57dp"
         android:layout_margin="16dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:background="@drawable/card_background"
-        android:fontFamily="sans-serif-light"
-        android:hint="e.g. username@email.com"
-        android:inputType="textEmailAddress"
-        android:paddingStart="20dp"
-        android:textColor="@color/gray"
-        android:textSize="14dp"
+        android:text="Send"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.714"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.564" />
+        app:layout_constraintVertical_bias="0.647"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView13"
+        tools:ignore="MissingConstraints"
         android:layout_width="49dp"
         android:layout_height="26dp"
         android:fontFamily="sans-serif-light"
         android:text="Email"
         android:textColor="@color/black"
         android:textSize="17dp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.486" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="351dp"
+        android:layout_height="49dp"
+        android:layout_margin="16dp"
+        android:autofillHints="emailAddress"
+        android:fontFamily="sans-serif-light"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532" />
 
     <TextView
         android:id="@+id/textView12"
