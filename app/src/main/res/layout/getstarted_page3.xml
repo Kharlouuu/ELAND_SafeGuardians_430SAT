@@ -14,21 +14,24 @@
         android:src="@drawable/image3" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="189dp"
         android:layout_height="wrap_content"
         android:text="Safe and Secure"
-        android:textStyle="bold"
-        />
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your data is protected"
-        />
+        android:text="Your data is protected" />
 
     <Button
         android:id="@+id/getStartedbutton"
-        android:layout_width="163dp"
-        android:layout_height="63dp"
+        android:layout_width="334dp"
+        android:layout_height="54dp"
+        android:textStyle="bold"
+        android:background="@drawable/card_background"
         android:layout_marginTop="20dp"
         android:text="Get Started"
         android:textColor="@color/white" />

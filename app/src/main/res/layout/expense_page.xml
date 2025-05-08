@@ -6,32 +6,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@id/headerLayout"
+        android:layout_width="434dp"
+        android:layout_height="122dp"
+        android:background="@drawable/main_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:layout_width="167dp"
-        android:layout_height="32dp"
+        android:layout_width="200dp"
+        android:layout_height="39dp"
         android:text="Add Expenses"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintHorizontal_bias="0.592"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095"
+        app:layout_constraintVertical_bias="0.069"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/back_navblack"
+        android:layout_width="26dp"
+        android:layout_height="21dp"
+        android:background="@drawable/back_nav"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094"
+        app:layout_constraintVertical_bias="0.081"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -53,6 +62,9 @@
         android:layout_height="49dp"
         android:ems="10"
         android:inputType="text"
+        android:paddingStart="20dp"
+        android:background="@drawable/card_background"
+        android:backgroundTint="@color/material_dynamic_neutral80"
         android:hint="Expense Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,6 +80,9 @@
         android:ems="10"
         android:inputType="text"
         android:hint="Amount (₱)"
+        android:paddingStart="20dp"
+        android:background="@drawable/card_background"
+        android:backgroundTint="@color/material_dynamic_neutral80"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
@@ -78,8 +93,10 @@
 
     <Button
         android:id="@+id/buttonSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="334dp"
+        android:layout_height="50dp"
+        android:textStyle="bold"
+        android:background="@drawable/card_background"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

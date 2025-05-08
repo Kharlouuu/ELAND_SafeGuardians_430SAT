@@ -7,39 +7,23 @@
 
     <ImageView
         android:id="@+id/shape2"
-        android:layout_width="413dp"
-        android:layout_height="255dp"
+        android:layout_width="434dp"
+        android:layout_height="122dp"
         android:background="@drawable/main_shape"
-        app:layout_constraintBottom_toBottomOf="@+id/shape3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/shape3"
-        android:layout_width="412dp"
-        android:layout_height="757dp"
-        android:background="@drawable/button_shape"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAllTransactions"
-        android:layout_width="398dp"
-        android:layout_height="659dp"
-        android:layout_marginStart="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/shape3"
+        android:layout_width="363dp"
+        android:layout_height="620dp"
+        android:layout_marginStart="16dp"
+        android:paddingStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/shape3"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="144dp" />
 
     <ImageView
         android:id="@+id/btnBack"
@@ -48,25 +32,26 @@
         android:background="@drawable/back_nav"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.086"
+        app:layout_constraintVertical_bias="0.085"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:layout_width="122dp"
-        android:layout_height="24dp"
+        android:layout_width="175dp"
+        android:layout_height="38dp"
         android:text="Transaction"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/shape2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265"
+        app:layout_constraintVertical_bias="0.595"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

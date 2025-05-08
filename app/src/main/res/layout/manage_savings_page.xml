@@ -10,15 +10,18 @@
     tools:context=".ManageActivity">
 
     <!-- Title -->
+
+    <!-- Total Savings -->
+
     <TextView
         android:id="@+id/tvManageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Manage Savings"
-        android:textStyle="bold"
-        android:textSize="20sp" />
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-    <!-- Total Savings -->
     <TextView
         android:id="@+id/tvTotalLabel"
         android:layout_width="wrap_content"
