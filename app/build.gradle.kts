@@ -37,6 +37,8 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+
 }
 
 dependencies {
@@ -45,6 +47,7 @@ dependencies {
     implementation("androidx.compose.ui:ui:1.5.0")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.0")
     implementation(libs.play.services.fitness)
+    implementation(libs.androidx.databinding.runtime)
     debugImplementation("androidx.compose.ui:ui-tooling:1.5.0")
 
     // Retrofit & OkHttp
@@ -58,6 +61,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
 
     // Room (DB/entity/dao)
     implementation("androidx.room:room-runtime:2.6.1")
