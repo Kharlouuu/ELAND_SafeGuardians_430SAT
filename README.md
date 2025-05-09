@@ -30,7 +30,7 @@ CoinCrate is a comprehensive savings tracker and planner app designed to help us
 
 
 ## 🔗 UI Design
--[UI Design](https://www.figma.com/design/eggJ5NwIoyTFpMgTcIpmi3/Coin-Crate-Design?node-id=0-1&t=aAspOtTOH7Bc2hoz-1)
+- [UI Design](https://www.figma.com/design/eggJ5NwIoyTFpMgTcIpmi3/Coin-Crate-Design?node-id=0-1&t=aAspOtTOH7Bc2hoz-1)
 
 ## 🔗 Testcases Documentation
 -[]()
