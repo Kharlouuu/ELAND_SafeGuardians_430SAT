@@ -21,25 +21,25 @@ CoinCrate is a comprehensive savings tracker and planner app designed to help us
 
 
 ## Android Repository Link
-- [Android Repository](https://github.com/Kharlouuu/ELAND_SafeGuardians_430SAT.git)
+📱 [Android Repository](https://github.com/Kharlouuu/ELAND_SafeGuardians_430SAT.git)
 
 ## PHP Repository Link
-- [PHP Repository](https://github.com/Kharlouuu/ELPHP_SafeGuardians_130SAT.git)
+⚙️ [PHP Repository](https://github.com/Kharlouuu/ELPHP_SafeGuardians_130SAT.git)
 
 ## API Server Link
 
 
 ## UI Design
-- [UI Design](https://www.figma.com/design/eggJ5NwIoyTFpMgTcIpmi3/Coin-Crate-Design?node-id=0-1&t=aAspOtTOH7Bc2hoz-1)
+🎨 [UI Design](https://www.figma.com/design/eggJ5NwIoyTFpMgTcIpmi3/Coin-Crate-Design?node-id=0-1&t=aAspOtTOH7Bc2hoz-1)
 
 ## Testcases Documentation
-- [CoinCrate Testcases Documentation](./CoinCrate_Test-Plan.pdf)
+🧪 [CoinCrate Testcases Documentation](./CoinCrate_Test-Plan.pdf)
 
 ## Documentation v1
-- [CoinCrate Final Documentation](./430Sat_AND_Coin_Crate_ProjectDocument-FINAL.pdf)
+📄 [CoinCrate Final Documentation](./430Sat_AND_Coin_Crate_ProjectDocument-FINAL.pdf)
 
 ## Sequence Diagram
-- [CoinCrate Sequence Diagram](./CoinCrate_SEQUENCE-DIAGRAM.pdf)
+📊 [CoinCrate Sequence Diagram](./CoinCrate_SEQUENCE-DIAGRAM.pdf)
 
 ## Programming Languages and Platforms
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
