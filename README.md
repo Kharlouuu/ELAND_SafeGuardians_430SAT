@@ -1,9 +1,9 @@
-# COIN CRATE
+## 🔗 COIN CRATE
 CoinCrate is a comprehensive savings tracker and planner app designed to help users organize their finances, set realistic savings goals, and track their progress in a seamless and intuitive way. 
 
 ![{46D230B6-E59C-486D-B403-1CAE807FAB9A}](https://github.com/user-attachments/assets/f0491fe1-f88f-4cf8-ac36-1d63beb82c3b)
 
-# ELDROID Members
+## 🔗 ELDROID Members
 - [Karl Harlou Agan](https://github.com/Kharlouuu)
 - [Arvin Avenido](Github.com/Arvinavenido)
 - [Joshua Jade Erojo](https://github.com/Dreamerclone)
@@ -12,7 +12,7 @@ CoinCrate is a comprehensive savings tracker and planner app designed to help us
 - [Kyle Vincent Zagado](https://github.com/kylevincent123)
 
 
-# PHP Members
+## 🔗 PHP Members
 - [Karl Harlou Agan](https://github.com/Kharlouuu)
 - [Arvin Avenido](Github.com/Arvinavenido)
 - [Joshua Jade Erojo](https://github.com/Dreamerclone)
@@ -20,26 +20,26 @@ CoinCrate is a comprehensive savings tracker and planner app designed to help us
 - [Kyle Vincent Zagado](https://github.com/kylevincent123)
 
 
-# Android Repository Link
+## 🔗 Android Repository Link
 
 - [Android Repository]([https://github.com/Kharlouuu](https://github.com/Kharlouuu/ELAND_SafeGuardians_430SAT.git))
 
-# PHP Repository Link
--[PHP Repository](https://github.com/Kharlouuu/ELPHP_SafeGuardians_130SAT.git)
+## 🔗 PHP Repository Link
+- [PHP Repository](https://github.com/Kharlouuu/ELPHP_SafeGuardians_130SAT.git)
 
-# API Server Link
+## 🔗 API Server Link
 
 
-# UI Design
+## 🔗 UI Design
 -[UI Design](https://www.figma.com/design/eggJ5NwIoyTFpMgTcIpmi3/Coin-Crate-Design?node-id=0-1&t=aAspOtTOH7Bc2hoz-1)
 
-# Testcases Documentation
+## 🔗 Testcases Documentation
 -[]()
 
-# Documentation v1
+## 🔗 Documentation v1
 -[]()
 
-# Routes Documentation
+## 🔗 Routes Documentation
 -[]()
 
 ## 🔗 Programming Languages and Platforms
@@ -63,8 +63,4 @@ CoinCrate is a comprehensive savings tracker and planner app designed to help us
 ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
-
-# Databases
-
-# Tools and Deployment
 
