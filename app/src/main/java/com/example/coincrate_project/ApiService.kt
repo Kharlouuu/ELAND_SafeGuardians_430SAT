@@ -8,7 +8,7 @@ interface ApiService {
 
     // Register a new user
     @FormUrlEncoded
-    @POST("backend.php?action=register")
+    @POST("auth/register")
     fun register(
         @Field("username") username: String,
         @Field("email") email: String,
@@ -17,7 +17,7 @@ interface ApiService {
 
     // Update the Profile
     @FormUrlEncoded
-    @POST("backend.php?action=update_profile")
+    @POST("auth/update-profile")
     fun updateUser(
         @Field("email") email: String,
         @Field("new_username") newUsername: String,
@@ -26,7 +26,7 @@ interface ApiService {
 
     // User login
     @FormUrlEncoded
-    @POST("backend.php?action=login")
+    @POST("auth/login")
     fun login(
         @Field("email") email: String,
         @Field("password") password: String
@@ -34,14 +34,14 @@ interface ApiService {
 
     // Forgot password
     @FormUrlEncoded
-    @POST("backend.php?action=forgot_password")
+    @POST("auth/forgot-password")
     fun forgotPassword(
         @Field("email") email: String
     ): Call<ResponseBody>
 
     // Reset password
     @FormUrlEncoded
-    @POST("backend.php?action=reset_password")
+    @POST("auth/reset-password")
     fun resetPassword(
         @Field("email") email: String,
         @Field("reset_code") resetCode: String,
