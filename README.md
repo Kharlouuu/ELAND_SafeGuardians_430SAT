@@ -21,8 +21,7 @@ CoinCrate is a comprehensive savings tracker and planner app designed to help us
 
 
 ## 🔗 Android Repository Link
-
-- [Android Repository]([https://github.com/Kharlouuu](https://github.com/Kharlouuu/ELAND_SafeGuardians_430SAT.git))
+- [Android Repository](https://github.com/Kharlouuu/ELAND_SafeGuardians_430SAT.git)
 
 ## 🔗 PHP Repository Link
 - [PHP Repository](https://github.com/Kharlouuu/ELPHP_SafeGuardians_130SAT.git)
