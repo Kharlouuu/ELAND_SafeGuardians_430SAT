@@ -36,10 +36,10 @@ CoinCrate is a comprehensive savings tracker and planner app designed to help us
 - [CoinCrate Testcases Documentation](./CoinCrate_Test-Plan.pdf)
 
 ## Documentation v1
-- [CoinCrate Testcases Documentation](./430Sat_AND_Coin_Crate_ProjectDocument-FINAL.pdf)
+- [CoinCrate Final Documentation](./430Sat_AND_Coin_Crate_ProjectDocument-FINAL.pdf)
 
 ## Sequence Diagram
-- [CoinCrate Testcases Documentation](./CoinCrate_SEQUENCE-DIAGRAM.pdf)
+- [CoinCrate Sequence Diagram](./CoinCrate_SEQUENCE-DIAGRAM.pdf)
 
 ## Programming Languages and Platforms
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
