@@ -4,90 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="24dp"
+    tools:context=".AddExpenseActivity">
 
+    <!-- Back Arrow -->
+    <ImageView
+        android:id="@+id/imageViewBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/back_navblack"
+        android:contentDescription="Back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Title -->
     <TextView
-        android:layout_width="167dp"
-        android:layout_height="32dp"
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Add Expenses"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toEndOf="@id/imageViewBack"
+        app:layout_constraintTop_toTopOf="@id/imageViewBack"
+        android:layout_marginStart="12dp" />
 
+    <!-- Illustration -->
     <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/back_navblack"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="325dp"
-        android:layout_height="253dp"
+        android:id="@+id/imageViewIllustration"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
         android:src="@drawable/expense_image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        android:contentDescription="Expense Illustration"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/editExpense"
-        android:layout_width="327dp"
-        android:layout_height="49dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Expense Name"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:layout_constraintVertical_bias="0.059"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginTop="24dp" />
 
-    <EditText
-        android:id="@+id/editAmount"
-        android:layout_width="326dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Amount (₱)"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editExpense"
-        app:layout_constraintVertical_bias="0.071"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/buttonSave"
-        android:layout_width="wrap_content"
+    <!-- Card Layout Container -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardForm"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:layout_constraintTop_toBottomOf="@id/imageViewIllustration"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editAmount"
-        app:layout_constraintVertical_bias="0.139" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="20dp"
+        android:backgroundTint="#FFFFFF">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <EditText
+                android:id="@+id/editExpense"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Savings Name"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="#000"
+                android:textColorHint="#888888"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/editAmount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Amount (₱)"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="#000"
+                android:textColorHint="#888888"
+                android:inputType="numberDecimal" />
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:text="Save"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#5A29E4"
+                app:cornerRadius="30dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
