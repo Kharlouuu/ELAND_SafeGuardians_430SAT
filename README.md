@@ -36,7 +36,7 @@ CoinCrate is a comprehensive savings tracker and planner app designed to help us
 🧪 [CoinCrate Test Cases Documentation](./CoinCrate_Test-Plan.pdf)
 
 ## Documentation v1
-📄 [CoinCrate Final Documentation](./430Sat_AND_Coin_Crate_ProjectDocument-FINAL.pdf)
+📄 [CoinCrate Final Documentation](./430Sat_AND_ Coin Crate_ProjectDocument-FINAL.pdf)
 
 ## Sequence Diagram
 📊 [CoinCrate Sequence Diagram](./CoinCrate_SEQUENCE-DIAGRAM.pdf)
